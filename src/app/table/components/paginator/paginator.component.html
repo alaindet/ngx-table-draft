@@ -1,0 +1,55 @@
+<div class="_page-size-selector">
+  <span class="_label">{{ i18nRowsPerPage }}</span>
+
+  <!-- TODO: Use custom select -->
+  <select title="page-size" (change)="onPageSizeClick($event)">
+    <option *ngFor="let pageSize of pageSizes" [value]="pageSize">
+      {{ pageSize }}
+    </option>
+  </select>
+</div>
+
+<div class="_rows-counter">
+  <strong>{{ lowerBound }}-{{ upperBound }}</strong>
+  {{ i18nOf }}
+  {{ total }}
+</div>
+
+<div class="_page-links">
+  <button
+    type="button"
+    [disabled]="!isPrevPage"
+    class="_page-link -near -prev"
+    (click)="onPageClick(prevPage)"
+    title="Previous page"
+  >
+    &lt;
+  </button>
+
+  <ng-container *ngFor="let pageLink of pageLinks">
+    <ng-container *ngIf="pageLink !== null; else ellipsisRef">
+      <button
+        type="button"
+        class="_page-link"
+        [class.-active]="pageLink === page"
+        (click)="onPageClick(pageLink)"
+        [disabled]="pageLink === null"
+      >
+        {{ pageLink }}
+      </button>
+    </ng-container>
+    <ng-template #ellipsisRef>
+      <span class="_page-link -ellipsis">...</span>
+    </ng-template>
+  </ng-container>
+
+  <button
+    type="button"
+    [disabled]="!isNextPage"
+    class="_page-link -near -next"
+    (click)="onPageClick(nextPage)"
+    title="Next page"
+  >
+    &gt;
+  </button>
+</div>

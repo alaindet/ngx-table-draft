@@ -1,0 +1,113 @@
+$app-color-smoke: #667790;
+
+app-table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100vw;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto !important;
+
+    &.-with-sorting {
+      th {
+        padding: 0.4rem 1rem;
+      }
+    }
+  }
+
+  thead {
+    background-color: #e7ebf1;
+    border-bottom: 1px solid #c2cddd;
+    color: $app-color-smoke;
+    font-size: 0.8em;
+    line-height: 0.8em;
+  }
+
+  th,
+  td {
+    padding: 0.66rem;
+    width: auto !important;
+  }
+
+  ._master-row-selector {
+    padding: 0.4rem 0 !important;
+    width: 0 !important;
+
+    ._header-content {
+      display: flex;
+      justify-content: center;
+      width: 100% !important;
+      align-items: center;
+      position: relative;
+      top: 4px;
+    }
+  }
+
+  tbody {
+    font-size: 0.9em;
+    line-height: 0.9em;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #c2cddd;
+  }
+
+  .-selectable-row {
+    width: 0 !important;
+    position: relative;
+    top: 4px;
+  }
+
+  .-align-x-start {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .-align-x-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .-align-x-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .-align-y-start {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .-align-y-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .-align-y-end {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  footer:not(:empty) {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .-loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .-overflow {
+      min-width: 960px;
+      overflow-x: scroll;
+    }
+  }
+}
